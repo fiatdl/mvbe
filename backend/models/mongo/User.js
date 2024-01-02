@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
       return randomInteger(10000, 99999).toString();
     }),
   },
-
+   avatar:{type:String},
   passwordResetToken: String,
   passwordResetExpires: Date,
 });

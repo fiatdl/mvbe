@@ -53,6 +53,7 @@ exports.SignUp = catchAsync(async (req, res, next) => {
     username: username,
     passwordChangedAt: Date.now(),
     role: role,
+    avatar:photo.link,
     photo: { link: photo.link },
   });
 
@@ -146,13 +147,14 @@ exports.SignIn = catchAsync(async (req, res, next) => {
     data: {
       id: user._id,
       account: user.account,
-      avatar: user.photo.link,
+      avatar: user.avatar,
       username: user.username,
       phone: user.phone,
       identifyNumber: user.identifyNumber,
       role: user.role || 'guest',
       token: token,
-      gender:user.gender
+      gender:user.gender,
+      isVip:user.isVip,
     },
   });
 });

@@ -18,7 +18,7 @@ async function updateUser(userId, updateFields) {
     let data= {
       id: user._id,
       account: user.account,
-      avatar: user.photo.link,
+      avatar: user.avatar,
       username: user.username,
       phone: user.phone,
       identifyNumber: user.identifyNumber,

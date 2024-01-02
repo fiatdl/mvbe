@@ -4,8 +4,8 @@ const userModel=require('../models/mongo/User');
 class PayController {
   
     payment(req, res, next) {
-
-        const value =10;
+      
+        const value =req.query.price;
         res.cookie("value", value);
         const create_payment_json = {
           "intent": "sale",
@@ -35,7 +35,7 @@ class PayController {
         };
     
     
-       userModel.findOneAndUpdate({_id:'65631fe6b8d724425b234728'},   { $set: { isVip: true } } ).then((i)=>{
+       userModel.findOneAndUpdate({_id:req.query.userID },   { $set: { isVip: true } } ).then((i)=>{
         console.log(i);
        }).catch((err)=>{throw err});
        
